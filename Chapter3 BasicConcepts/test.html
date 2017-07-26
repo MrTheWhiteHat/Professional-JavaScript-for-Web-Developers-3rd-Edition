@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>基本概念</title>
+	</head>
+	<body>
+		<script>
+
+			// 正则表达式使用typeof操作符返回'object'
+			var reg = /@/;
+			var type = typeof reg;
+			alert(type);
+
+			// 只声明，不初始化，变量值就是undefined
+			var v;
+			// undefined
+			alert(v);
+			// true
+			alert(v == undefined);
+
+			var v = undefined;
+			// true
+			alert(v == undefined);
+
+			var a;
+			// 变量b为声明
+			// var b;
+			alert(a);
+			// 为声明的变量会报not defined错误
+			// alert(b);
+			console.log('b:' + typeof b);
+
+			// 显式的初始化了 c -- undefined
+			var c = undefined;
+			console.log('c:' + typeof c);
+			// d 尚未定义 -- undefined
+			console.log('d:' + typeof d);
+
+			// e值为null（表示一个空对象指针），将有意保存对象却还没真正保存对象的变量设为null值。
+			// 这种做法是体现了null作为空指针对象的惯例，也为区分undefined。
+			// 可通过检测变量是否为null值，判断其是否已经保存了一个对象引用。进而进行对象操作。
+			var e = null;
+			console.log('e:' + typeof e);
+		</script>
+	</body>
+</html>
