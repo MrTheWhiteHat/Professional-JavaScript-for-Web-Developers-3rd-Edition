@@ -37,8 +37,50 @@
 				}
 			}
 
-			console.log(factorial(6));
+			console.log(factorial(6)); // 720
 
+			var newFactorial = factorial;
+			factorial = function () {
+				return 0;
+			}
+
+			console.log('factorial:' + factorial(6)); // factorial: 0
+ 			console.log('newFactorial:' + newFactorial(6)); // newFactorial:0
+
+			// 重写阶乘函数，使用arguments.callee()属性进行解耦
+			function factorial_1(num){
+				if (num <= 1) {
+					return 1;
+				} else {
+					return num * arguments.callee(num - 1);
+				}
+			}
+
+			var newfactorial_1 = factorial_1;
+			factorial_1 = function () {
+				return 0;
+			}
+
+			// 使用arguments.callee()就可以解耦递归的函数名使用问题了
+
+			console.log(newfactorial_1(5)); // 120
+			console.log(factorial_1(5)); // 0
+
+
+			// this对象引用的就是函数执行环境，也就是this值
+			window.color = 'red';
+			var o = {color:'blue'};
+
+			function sayColor() {
+				console.log(this.color);
+			}
+
+			// 牢记函数名仅仅是指向函数的指针变量，因而在不同执行环境中执行代码，sayColor()与o.sayColor()都指向同一个函数。
+
+			sayColor();	// red：全局作用域里执行代码，this对象引用的是window对象
+
+			o.sayColor = sayColor;
+			o.sayColor();	// blue:将函数赋给对象后，执行o.sayColor()，则this引用的执行环境为对象o
 		</script>
 	</body>
 </html>
