@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>第七章 函数表达式</title>			
+	</head>
+	<body>
+		<script>
+
+			// 函数表达式解决递归函数耦合问题
+			var factorial = (function f(num) {
+				if ( num <= 1) {
+					return 1;
+				} else {
+					return num * f(num - 1);
+				}
+			});
+			console.log(factorial(5)); // 120
+			// console.log(f(5)); // f is not defined! 作用域问题
+
+			// 作用域链查找变量
+			function compare(value1, value2) {
+				if ( value1 < value2) {
+					return -1;
+				} else if (value1 > value2) {
+					return 1;
+				}	else {
+					return 0;
+				}
+			}
+
+			var result = compare(5, 6);
+			console.log(result); // -1
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatiable" content="IE=Edge">
+		<title>JSON</title>
+	</head>
+	<body>
+		<script>
+			var jsonObj = [
+			    {
+					"school": "CCNU",
+					"campus": [
+						"imd",
+						"cs"
+					],
+					"address": "GuangBuTun"
+				},
+			    {
+					"school": "HUST",
+					"campus": [
+						"dzdqzdh",
+						"cs"
+					],
+					"address": "GuanShanKou"
+				},
+				{
+					"school": "WHU",
+					"campus": [
+						"wxy",
+						"cs"
+					],
+					"address": "LuoJiaShan"
+				}
+			];
+
+			// 将js数据结构序列化化为JSON字符串
+			var jsonObj1 = JSON.stringify(jsonObj, null, 4);
+			console.log(jsonObj1);
+
+			// 将JSON字符串解析成原生JS对象
+			var jsonObj2 = JSON.parse(jsonObj1);
+			console.log(jsonObj2);
+
+			// 获取JSON数据结构解析成JS对象后的数据
+			jsonObj2[0].school;
+		</script>
+	</body>
+</html>
+
